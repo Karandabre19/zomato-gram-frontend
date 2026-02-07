@@ -1,6 +1,11 @@
+@use "./reset.scss";
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap");
 
 body {
   margin: 0;
   font-family: "Playwrite NZ Basic", cursive;
+}
+
+.mainContainer {
+    padding: 1% 4%;
 }
