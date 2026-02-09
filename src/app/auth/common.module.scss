@@ -16,7 +16,7 @@
         padding: 2%;
 
         p {
-            width: 50%;
+            width: 60%;
             color: white;
             line-height: 1.2;
             @include display-flex($direction: column, $gap: 1rem);

@@ -8,6 +8,9 @@
 
     .registrationForm {
         @include fadeInUp();
+        @include display-flex($gap :$space-3xs, $direction : column);
+        width: 90%;
+        padding: 0 16%;
 
         .formLogo {
             @include display-flex($align :center, $gap: 1rem);
@@ -20,6 +23,13 @@
             span {
                 font-size: $font-size-xl;
             }
+        }
+
+        .nameContainer{
+            @include display-flex()
+        }
+        .submitButton{
+            margin-top: $space-lg;
         }
     }
 }

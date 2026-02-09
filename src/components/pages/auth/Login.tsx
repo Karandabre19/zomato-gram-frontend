@@ -15,6 +15,10 @@ const Login = () => {
           <Image src={logo} alt="logo" />
           <span>ZomatoGram</span>
         </div>
+        <div className={styles.formTitle}>
+          <h2>Login to your Foodic World </h2>
+          <p></p>
+        </div>
         <FormWrapper onSubmit={handleOnLogin}>login</FormWrapper>
       </div>
     </div>

@@ -1,0 +1,72 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "sass:color";
+
+.inputMainContainer {
+    width: 100%;
+    height: $space-2xl;
+    padding: $space-3xs;
+    border: 2px solid transparent;
+    border-radius: $space-xs;
+    transition: border-color 200ms ease;
+    position: relative;
+    margin-top: $space-xl;
+
+    &:focus-within {
+        border-color: $color-secondary;
+    }
+
+    .inputHeader {
+        @include display-flex($align :center);
+        position: absolute;
+        width: 100%;
+        bottom: 100%;
+
+        .label{
+            font-size: $font-size-sm;
+            font-weight: 400;
+        }
+
+
+        .alertTextContainer,
+        .inputError {
+            position: absolute;
+            width: 50%;
+            right: 5%;
+            @include display-flex($justify: end);
+            color: color.adjust($color-accent-2 , $lightness :-2%);
+            font-size: $font-size-xs;
+        }
+
+
+    }
+
+    .inputContainer {
+        background: white;
+        border: 1px solid rgb(201, 201, 201);
+        border-radius: $space-xs;
+        @include display-flex($align : center);
+        height: 100%;
+
+        .iconContainer {
+            width: 10%;
+            height: 100%;
+            @include display-flex($align: center, $justify : center);
+
+            svg {
+                width: 80%;
+                height: 80%;
+                color: rgb(63, 63, 63)
+            }
+        }
+
+        input {
+            width: 100%;
+            height: 100%;
+            padding: 2%;
+            outline: none;
+            border: none;
+            border-radius: $space-xs;
+        }
+    }
+}
