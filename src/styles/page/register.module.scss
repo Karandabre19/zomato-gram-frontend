@@ -25,11 +25,62 @@
             }
         }
 
-        .nameContainer{
+        .nameContainer {
             @include display-flex()
         }
-        .submitButton{
+
+        .submitButton {
             margin-top: $space-lg;
+        }
+
+        .separator {
+            width: 100%;
+            @include display-flex($align :center);
+            padding: $space-lg 0;
+
+            .line {
+                border: 1px solid gray;
+                width: 90%;
+                padding: 0 $space-2xs;
+            }
+
+            .orMessage {
+                width: 70%;
+                text-align: center;
+                background: white;
+                border: none;
+                border-radius: $space-xs;
+            }
+        }
+
+        .redirectingSignUp {
+            @include display-flex($align: center, $justify : space-around, $gap : $space-lg);
+            width: 100%;
+
+            button {
+                width: 60%;
+                cursor: pointer;
+                padding: $space-sm 0;
+                border: $space-3xs solid $color-secondary;
+                background: white;
+                border-radius: $space-md;
+                @include display-flex($align : center, $gap: $space-xs , $justify : center);
+                transition: all $ease-transition 400ms;
+
+                img {
+                    height: $space-lg;
+                    width: $space-lg;
+                }
+
+                &:hover {
+                    color: rgb(233, 233, 233);
+                    transform: translateY(-2px);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                }
+            }
         }
     }
 }

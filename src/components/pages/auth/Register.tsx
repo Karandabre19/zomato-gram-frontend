@@ -1,17 +1,32 @@
 "use client";
 
 import React from "react";
-import styles from "@/styles/page/register.module.scss"
+import styles from "@/styles/page/register.module.scss";
 import FormWrapper from "@/components/common/FormWrapper";
 import Image from "next/image";
 import logo from "../../../../public/logo/logo.jpg";
+import googleIcon from "../../../../public/logo/google.png";
+import appleIcon from "../../../../public//logo/apple.png";
 import Input from "@/components/ui/Input";
-import { Mail, PersonStanding, PersonStandingIcon } from "lucide-react";
+import {
+  LockKeyhole,
+  Mail,
+  PersonStanding,
+  PersonStandingIcon,
+} from "lucide-react";
 import PrimaryButton from "@/components/ui/PrimaryButton";
+import type { registerUser } from "@/types/api";
 
 const Register = () => {
+  const handleOnRegister = async (data: registerUser) => {
 
-  const handleOnRegister = async () => {};
+    try {
+      
+    } catch (error) {
+      console.error(error)
+    }
+
+  };
 
   return (
     <div className={styles.registerWrapper}>
@@ -24,13 +39,13 @@ const Register = () => {
           <h2>Create your account in your Foodic World </h2>
           <p></p>
         </div>
-        <FormWrapper onSubmit={handleOnRegister}>
+        <FormWrapper<registerUser> onSubmit={handleOnRegister}>
           <div className={styles.nameContainer}>
             <Input
               label="First Name"
               id="firstName"
               inputName="firstName"
-              placeholder="Karan..."
+              placeholder="What should we call you?"
               alertText="*"
               icon={PersonStanding}
               validation={{
@@ -45,7 +60,7 @@ const Register = () => {
               label="Last Name"
               id="lastName"
               inputName="lastName"
-              placeholder="Dabare..."
+              placeholder="Your family name?"
               icon={PersonStandingIcon}
               validation={{
                 required: "Last name is required",
@@ -62,7 +77,7 @@ const Register = () => {
             type="email"
             inputName="email"
             icon={Mail}
-            placeholder="karanDabare198@gmail.com"
+            placeholder="Best email for updates"
             validation={{
               required: "Email is required",
             }}
@@ -72,8 +87,8 @@ const Register = () => {
             id="password"
             type="password"
             inputName="password"
-            icon={Mail}
-            placeholder="Enter your secret key to connect Foodics"
+            icon={LockKeyhole}
+            placeholder="Set your foodie password"
             validation={{
               required: "Password is required",
             }}
@@ -87,6 +102,21 @@ const Register = () => {
             </PrimaryButton>
           </div>
         </FormWrapper>
+        <div className={styles.separator}>
+          <div className={styles.line}></div>
+          <div className={styles.orMessage}>Or sign up with</div>
+          <div className={styles.line}></div>
+        </div>
+        <div className={styles.redirectingSignUp}>
+          <button className={styles.googleButton}>
+            <Image src={googleIcon} alt="google-icon" />
+            <span>Google</span>
+          </button>
+          <button className={styles.appleButton}>
+            <Image src={appleIcon} alt="apple-icon" />
+            <span>apple</span>
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -3,13 +3,18 @@
 import { formProps } from "@/types/form";
 import React from "react";
 import styles from "@/styles/common/form.module.scss";
-import { FormProvider, useForm } from "react-hook-form";
+import { FieldValues, FormProvider, useForm } from "react-hook-form";
 
-const FormWrapper = ({ children, onSubmit, onChange }: formProps) => {
-  const methods = useForm({
+const FormWrapper = <TFieldValues extends FieldValues>({
+  children,
+  onSubmit,
+  defaultValues,
+}: formProps<TFieldValues>) => {
+  const methods = useForm<TFieldValues>({
     mode: "onChange",
     reValidateMode: "onChange",
     shouldFocusError: true,
+    defaultValues,
   });
 
   return (
